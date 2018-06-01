@@ -1,0 +1,24 @@
+{
+  "name": "file-template-generator",
+  "version": "1.0.0",
+  "description": "file template generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uittorio/file-template-generator.git"
+  },
+  "keywords": [
+    "file",
+    "template",
+    "generator"
+  ],
+  "author": "Vittorio Guerriero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uittorio/file-template-generator/issues"
+  },
+  "homepage": "https://github.com/uittorio/file-template-generator#readme"
+}
