@@ -1,6 +1,6 @@
 const ProcessService = require('./lib/process/process');
 const processService = new ProcessService(process);
-const Generator = require('./lib/generator/generator');
+const FileTemplateGenerator = require('../fileTemplateGenerator/fileTemplateGenerator');
 
 (function() {
   if (!processService.hasArgument('config')) {
@@ -14,9 +14,7 @@ const Generator = require('./lib/generator/generator');
   const config = require('./' + processService.getArgument('config'));
   const typeArg = processService.getArgument('type');
 
-  const typeToCreate = config.schemas.find((schema) => {
-    return schema.type === typeArg;
-  });
+  const typeToCreate = config.schemas[typeArg];
 
   if (!typeToCreate) {
     processService.exit('The type provided is not present in the config file');
@@ -27,10 +25,14 @@ const Generator = require('./lib/generator/generator');
       processService.exit('the parameter ' + parameter + ' has not been provided. Please provide all the parameters defined in your schema');
     }
 
-    return processService.getArgument(parameter);
+    return {
+      name: parameter,
+      value: processService.getArgument(parameter)
+    }
   });
 
-  typeToCreate.files.forEach((file) => {
-    new Generator(file, parameters).createFile();
+  FileTemplateGenerator.generate({
+    files: typeToCreate.files,
+    parameters: parameters
   });
 })();
