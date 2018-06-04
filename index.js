@@ -1,6 +1,6 @@
 const ProcessService = require('./lib/process/process');
 const processService = new ProcessService(process);
-const FileTemplateGenerator = require('../fileTemplateGenerator/fileTemplateGenerator');
+const FileTemplateGenerator = require('./fileTemplateGenerator/fileTemplateGenerator');
 
 (function() {
   if (!processService.hasArgument('config')) {
@@ -36,3 +36,5 @@ const FileTemplateGenerator = require('../fileTemplateGenerator/fileTemplateGene
     parameters: parameters
   });
 })();
+
+module.exports = FileTemplateGenerator;
