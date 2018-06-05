@@ -1,8 +1,8 @@
 {
   "name": "file-template-generator",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "file template generator",
-  "main": "index.js",
+  "main": "./fileTemplateGenerator/fileTemplateGenerator.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uittorio/file-template-generator.git"
