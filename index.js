@@ -11,28 +11,32 @@ const FileTemplateGenerator = require('./fileTemplateGenerator/fileTemplateGener
     processService.exit('No type provided, Please provide one from your config');
   }
 
+  if (!processService.hasArgument('path')) {
+    processService.exit('No path provided, Please provide one');
+  }
+
   const config = require('./' + processService.getArgument('config'));
   const typeArg = processService.getArgument('type');
+  const path = processService.getArgument('path');
 
   const typeToCreate = config.schemas[typeArg];
 
   if (!typeToCreate) {
     processService.exit('The type provided is not present in the config file');
   }
+  const parameters = {};
 
-  const parameters = typeToCreate.parameters.map((parameter) => {
+  typeToCreate.parameters.forEach((parameter) => {
     if (!processService.hasArgument(parameter)) {
       processService.exit('the parameter ' + parameter + ' has not been provided. Please provide all the parameters defined in your schema');
     }
 
-    return {
-      name: parameter,
-      value: processService.getArgument(parameter)
-    }
+    parameters[parameter] = processService.getArgument(parameter);
   });
 
   FileTemplateGenerator.generate({
     files: typeToCreate.files,
+    path: path,
     parameters: parameters
   });
 })();
