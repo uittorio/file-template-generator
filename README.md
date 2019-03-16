@@ -1,5 +1,5 @@
 # file-template-generator
-generate files with an open configuration.
+Generate files with an open configuration.
 The intention of this library is to give you the freedom to decide what you want to create and how many files create with different rules
 It is not framework specific.
 
@@ -99,7 +99,8 @@ FileTemplateGenerator.generate({
 
 ```
 
-This is where you save the file
+This is where you save the file.
+
 If you define a path of *test-folder* it will create the file inside test-folder and create the folder for you
 
 **parameters**
