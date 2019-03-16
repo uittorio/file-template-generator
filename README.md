@@ -17,7 +17,7 @@ const FileTemplateGenerator = require('file-template-generator');
 ```
 ## Overview
 
-```
+```ts
 FileTemplateGenerator.generate({
     files: Array<{
         template: stringUrl, // the file schema
@@ -60,29 +60,29 @@ Few rules:
 - the constructor accept custom parameters. See below    
 
     ***template***
-    ```
+    ```ts
     export class $Name implements $IName {}
 
     ```
 
     ***class***
-    ```
+    ```js
     class MyClass {
-    constructor(param) {
-        this.name = param.name;
-    }
-
-    fileName() {
-        return this.name + '.component.ts';
-    }
-
-    $Name() {
-        return this.name + 'Component';
-    }
-
-    $IName() {
-        return this.name + 'IComponent';
-    }
+        constructor(param) {
+            this.name = param.name;
+        }
+    
+        fileName() {
+            return this.name + '.component.ts';
+        }
+    
+        $Name() {
+            return this.name + 'Component';
+        }
+    
+        $IName() {
+            return this.name + 'IComponent';
+        }
     }
 
     module.exports = MyClass;
@@ -90,7 +90,7 @@ Few rules:
 
 **path**
 
-```ts
+```js
 
 FileTemplateGenerator.generate({
     path: string
@@ -119,7 +119,7 @@ FileTemplateGenerator.generate({
 This parameter will be send to the constructor of each of your files so you can re used them to create your files
 
 ***class***
-```
+```js
 class MyClass {
   constructor(param) {
     this.name = param.name; //name
