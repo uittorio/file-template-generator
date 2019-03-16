@@ -51,7 +51,7 @@ It needs a template file and a class file.
 
 Few rules:
 
-- fileName is required to defined the filename of the file
+- fileName in the class is required to defined the filename of the file
 - Everything followed by the *$* symbol in the template file will be replace by his method in the class file.
 
     If we have for example *$Name* in the template you just need a method called *$Name* in the class and it will be replaced
